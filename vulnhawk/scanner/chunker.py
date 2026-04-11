@@ -137,10 +137,12 @@ def _split_python(content: str, file_path: Path) -> list[CodeChunk]:
     for i, line in enumerate(lines):
         stripped = line.lstrip()
         indent = len(line) - len(stripped)
-        if indent == 0 and re.match(r"^(def |class |async def )", stripped):
-            name_match = re.match(r"^(?:async\s+)?(?:def|class)\s+(\w+)", stripped)
-            name = name_match.group(1) if name_match else "unknown"
-            kind = "class" if stripped.startswith("class ") else "function"
+        if indent == 0 and re.match(r"^(async\s+)?(?:def|class)\s+", stripped):
+            name_match = re.match(r"^(async\s+)?(?:def|class)\s+(\w+)", stripped)
+            name = name_match.group(2) if name_match else "unknown"
+            kind = "class" if name_match and name_match.group(1) is None and stripped.startswith("class") else \
+                  "class" if name_match and name_match.group(1) and stripped.lstrip().startswith("async class") else \
+                  "class" if stripped.startswith("class") else "function"
             boundaries.append((i, name, kind))
 
     if not boundaries:
