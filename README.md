@@ -399,6 +399,14 @@ If VulnHawk is useful to you, consider [sponsoring the project](https://github.c
 
 ---
 
+
+## Professional services
+
+VulnHawk is built and maintained by [GreyCore Labs](https://greycorelabs.com), a US-incorporated offensive security firm. Want the same eye on your own product?
+
+- [Penetration testing](https://greycorelabs.com/#plans) - web, API, mobile, cloud. Fixed quote within 24 hours, redacted sample report on request.
+- [Free external attack-surface scan](https://greycorelabs.com/#free-scan) - one-page report in 48 hours, no strings attached.
+
 ## License
 
 VulnHawk is **source-available** under the [VulnHawk License](LICENSE).
